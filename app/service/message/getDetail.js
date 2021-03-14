@@ -21,14 +21,13 @@ class GetDetailService extends Service {
       },
       {
         model: ctx.model.User.User
-      }, 
-    ],
+      }, ],
       where: {
         id: informID,
         to_user_id: userID
       }
     })
-    if(!messageDetail){
+    if (!messageDetail) {
       return ctx.retrunInfo(-1, '', '未找到此消息')
     }
     // 获取数据库中所有用户
@@ -55,7 +54,7 @@ class GetDetailService extends Service {
       if (user.id === messageDetail.form_user_id) {
         checkerName = user.name;
       }
-      
+
       if (user.id === messageDetail.law.host_user_id) {
         hostName = user.name
       }
@@ -69,6 +68,38 @@ class GetDetailService extends Service {
       checker: checkerName, //审核人
       comment: messageDetail.remark, //备注
     }, '获取成功')
+  }
+
+
+  /**
+   * @description 获取案件结案通知
+   * @return {object} 通知详情
+   * @memberof GetDetailService
+   */
+  async getRequestMessage() {
+    const { ctx, service } = this
+    const jwtData = await service.jwt.getJWtData();
+    const userID = jwtData.userID
+
+    const messageList = await ctx.model.User.Message.findAll({
+      include: [
+      {
+        model: ctx.model.Law.Law
+      }],
+      where: {
+        to_user_id: userID
+      }
+    })
+
+    const res = messageList.map(messageItem => {
+      return {
+        name: messageItem.law.name,
+        id: messageItem.law.id,
+        result: messageItem.is_agree ? 0 : 1
+      }
+    })
+
+    return ctx.retrunInfo(0, res, '获取成功')
   }
 }
 

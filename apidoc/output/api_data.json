@@ -137,6 +137,16 @@
   },
   {
     "type": "GET",
+    "url": "/api/user/getInform",
+    "title": "获取案件结案通知",
+    "version": "0.0.0",
+    "filename": "app/controller/law.js",
+    "group": "E:\\project\\lawyer_platform\\app\\controller\\law.js",
+    "groupTitle": "E:\\project\\lawyer_platform\\app\\controller\\law.js",
+    "name": "GetApiUserGetinform"
+  },
+  {
+    "type": "GET",
     "url": "/api/user/salaryList",
     "title": "获取收入列表",
     "parameter": {

@@ -6,6 +6,9 @@ module.exports = options => {
     const nowDate = Date.now() // 等同于new Date().getTime()
     const req = ctx.request;
     await next();
+    if (ctx.websocket) {
+      return
+    }
     const res = ctx.response.body
     const log = {
       method: req.method,

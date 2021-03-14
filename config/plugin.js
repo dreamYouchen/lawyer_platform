@@ -26,9 +26,9 @@ module.exports = {
     enable: true,
     package: 'egg-redis',
   },
-  io: {
-    enable: false,
-    package: 'egg-socket.io',
+  websocket: {
+    enable: true,
+    package: 'egg-websocket-plugin',
   },
   auth: {
     enable: true,

@@ -78,7 +78,7 @@ class RequestService extends Service {
    * @memberof RequestService
    */
   async agreeRequest(requestID, isAgree, message) {
-    const { ctx, service } = this
+    const { ctx, service, app } = this
     let transaction;
     transaction = await ctx.model.transaction(); // 定义事务
     try {
@@ -93,8 +93,15 @@ class RequestService extends Service {
           result_request_id: requestID
         }
       })
+
+      if (!law) {
+        throw new Error('未找到该案件')
+      }
+
+      const noticeUsers = []; // 需要websocket进行即时通讯的用户
       for (let i = 0; i < law.users.length; i++) {
         const assistItem = law.users[i];
+        noticeUsers.push(assistItem.law_assistant.assist_id)
         await ctx.model.User.Message.create({
           form_user_id: userID,
           to_user_id: assistItem.law_assistant.assist_id,
@@ -103,9 +110,6 @@ class RequestService extends Service {
           is_watched: false,
           is_agree: isAgree
         })
-      }
-      if (!law) {
-        throw new Error('未找到该案件')
       }
       if (isAgree) {
         await law.update({
@@ -123,7 +127,12 @@ class RequestService extends Service {
         is_watched: false,
         is_agree: isAgree
       })
+
       await transaction.commit();
+      // 推送websocket消息
+      if (ctx.websocket) {
+        app.ws.sendTo('law', noticeUsers)
+      }
       await service.redis.updateLawsInRedis();
       return ctx.retrunInfo(0, '', '请求成功');
     } catch (error) {

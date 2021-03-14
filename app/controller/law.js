@@ -174,6 +174,25 @@ class LawController extends Controller {
     const res = await service.law.lawInfo.getScaleList(parseInt(caseID));
     ctx.body = res;
   }
+
+  /**
+   * @api {GET} /api/user/getInform 获取案件结案通知
+   */
+  async getRequestMessage() {
+    const { ctx, service } = this;
+    const res = await service.message.getDetail.getRequestMessage();
+    ctx.body = res;
+  }
+
+  async initWs() {
+    const { ctx } = this;
+    if (!ctx.websocket) {
+      return
+    }
+
+    // 建立连接
+    ctx.websocket.room.join('law')
+  }
 }
 
 module.exports = LawController;

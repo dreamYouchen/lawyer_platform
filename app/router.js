@@ -5,6 +5,7 @@
  */
 module.exports = app => {
   const { router, controller, middleware } = app;
+  const wsBuild = middleware.wsBuild(); // 构建websocket
   const loginLog = middleware.loginLog(); // 登录/退出登录日志
   const verifyPhoneNumber = middleware.verifyPhoneNumber(); // 验证手机号的中间件
   const imageVerifyCode = middleware.imageVerifyCode(); // 验证图片验证码正确性的中间件
@@ -122,6 +123,9 @@ module.exports = app => {
   router.get('/api/admin/request', controller.request.requestWord); // 获取归档word文件
   router.get('/api/admin/request/list', controller.request.requestWordList); // 获取归档请求列表
   router.post('/api/admin/request', controller.request.agreeRequest); // 处理是否同意归档
+  router.get('/api/user/getInform', controller.law.getRequestMessage); // 获取结案消息
 
   router.put('/api/test', controller.home.test);
+
+  app.ws.route('/api/case/WSconnect', controller.law.initWs)
 };

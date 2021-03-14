@@ -24,7 +24,8 @@ module.exports = appInfo => {
       if (url === '/') {
         return true;
       }
-      const reg = /^\/api(\/login|\/public\/verificationCode)/;
+      // 登录，验证码和websocket不进行验证
+      const reg = /^\/api(\/login|\/public\/verificationCode|\/case\/WSconnect)/;
 
       return reg.test(url);
     },
@@ -47,7 +48,7 @@ module.exports = appInfo => {
   };
 
   config.auth = {
-    jwtExclude: ['/api/login', '/api/public/verificationCode'],
+    jwtExclude: ['/api/login', '/api/public/verificationCode', '/ws'],
     output: 'apidoc/output',
     template: 'apidoc/template'
   }

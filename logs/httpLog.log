@@ -173,3 +173,7 @@
 2021-03-07 16:14:25 [http] {"method":"GET","url":"/api/user/getInformDetail?informID=3","data":{},"response":{"code":0,"message":"获取成功"},"timeLength":365}
 2021-03-07 16:14:46 [http] {"method":"GET","url":"/api/user/getInformDetail?informID=3","data":{},"response":{"code":0,"message":"获取成功"},"timeLength":187}
 2021-03-07 16:16:11 [http] {"method":"GET","url":"/api/user/getInformDetail?informID=3","data":{},"response":{"code":0,"message":"获取成功"},"timeLength":192}
+2021-03-14 21:20:54 [http] {"method":"POST","url":"/api/public/verificationCode/note","data":{"phoneNumber":"18185058651"},"response":{"code":0,"message":"发送成功"},"timeLength":16}
+2021-03-14 21:46:22 [http] {"method":"GET","url":"/api/user/getInform","data":{},"response":{"code":-1,"message":"传递参数错误"},"timeLength":3}
+2021-03-14 21:47:14 [http] {"method":"GET","url":"/api/user/getInform","data":{},"response":{"code":0,"message":"获取成功"},"timeLength":37}
+2021-03-14 21:49:39 [http] {"method":"GET","url":"/api/user/getInform","data":{},"response":{"code":0,"message":"获取成功"},"timeLength":34}

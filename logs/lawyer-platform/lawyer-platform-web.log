@@ -96,3 +96,153 @@
 2021-03-07 16:16:11,391 INFO 5880 [egg-sequelize](50ms) Executed (default): SELECT `message`.`id`, `message`.`form_user_id`, `message`.`to_user_id`, `message`.`law_id`, `message`.`remark`, `message`.`is_watched`, `message`.`is_agree`, `law`.`id` AS `law.id`, `law`.`number` AS `law.number`, `law`.`name` AS `law.name`, `law`.`status_id` AS `law.status_id`, `law`.`base_info` AS `law.base_info`, `law`.`detail_info` AS `law.detail_info`, `law`.`type_id` AS `law.type_id`, `law`.`agency_word_id` AS `law.agency_word_id`, `law`.`final_report_id` AS `law.final_report_id`, `law`.`result_request_id` AS `law.result_request_id`, `law`.`audit_user_id` AS `law.audit_user_id`, `law`.`create_time` AS `law.create_time`, `law`.`end_time` AS `law.end_time`, `law`.`accuser` AS `law.accuser`, `law`.`defendant` AS `law.defendant`, `law`.`trial_level_id` AS `law.trial_level_id`, `law`.`host_user_id` AS `law.host_user_id`, `law`.`host_assist_scale` AS `law.host_assist_scale`, `law`.`money` AS `law.money`, `law`.`remove_time` AS `law.remove_time`, `user`.`id` AS `user.id`, `user`.`jurisdiction_id` AS `user.jurisdiction_id`, `user`.`age` AS `user.age`, `user`.`sex` AS `user.sex`, `user`.`password` AS `user.password`, `user`.`weixin_number` AS `user.weixin_number`, `user`.`phone_number` AS `user.phone_number`, `user`.`name` AS `user.name`, `user`.`lawyer_number` AS `user.lawyer_number`, `user`.`avatar` AS `user.avatar`, `user`.`driver_scan_image` AS `user.driver_scan_image`, `user`.`lawyer_scan_image` AS `user.lawyer_scan_image`, `user`.`lawyer_office_id` AS `user.lawyer_office_id`, `user`.`update_time` AS `user.update_time`, `user`.`create_time` AS `user.create_time`, `user`.`identify_number` AS `user.identify_number`, `user`.`law_number` AS `user.law_number`, `user`.`start_time` AS `user.start_time` FROM `message` AS `message` LEFT OUTER JOIN `law` AS `law` ON `message`.`law_id` = `law`.`id` LEFT OUTER JOIN `user` AS `user` ON `message`.`form_user_id` = `user`.`id` WHERE `message`.`id` = '3' AND `message`.`to_user_id` = 1;
 2021-03-07 16:16:11,450 INFO 5880 [egg-sequelize](49ms) Executed (default): SELECT `user`.`id`, `user`.`jurisdiction_id`, `user`.`age`, `user`.`sex`, `user`.`password`, `user`.`weixin_number`, `user`.`phone_number`, `user`.`name`, `user`.`lawyer_number`, `user`.`avatar`, `user`.`driver_scan_image`, `user`.`lawyer_scan_image`, `user`.`lawyer_office_id`, `user`.`update_time`, `user`.`create_time`, `user`.`identify_number`, `user`.`law_number`, `user`.`start_time`, `jurisdiction`.`id` AS `jurisdiction.id`, `jurisdiction`.`value` AS `jurisdiction.value`, `lawyer_office`.`id` AS `lawyer_office.id`, `lawyer_office`.`lawyer_office_address` AS `lawyer_office.lawyer_office_address`, `lawyer_office`.`lawyer_office_name` AS `lawyer_office.lawyer_office_name`, `lawyer_office`.`lawyer_office_scale` AS `lawyer_office.lawyer_office_scale` FROM `user` AS `user` LEFT OUTER JOIN `jurisdiction` AS `jurisdiction` ON `user`.`jurisdiction_id` = `jurisdiction`.`id` LEFT OUTER JOIN `lawyer_office` AS `lawyer_office` ON `user`.`lawyer_office_id` = `lawyer_office`.`id`;
 2021-03-07 16:16:11,516 INFO 5880 [egg-sequelize](59ms) Executed (default): SELECT `law`.`id`, `law`.`number`, `law`.`name`, `law`.`status_id`, `law`.`base_info`, `law`.`detail_info`, `law`.`type_id`, `law`.`agency_word_id`, `law`.`final_report_id`, `law`.`result_request_id`, `law`.`audit_user_id`, `law`.`create_time`, `law`.`end_time`, `law`.`accuser`, `law`.`defendant`, `law`.`trial_level_id`, `law`.`host_user_id`, `law`.`host_assist_scale`, `law`.`money`, `law`.`remove_time`, `users`.`id` AS `users.id`, `users`.`jurisdiction_id` AS `users.jurisdiction_id`, `users`.`age` AS `users.age`, `users`.`sex` AS `users.sex`, `users`.`password` AS `users.password`, `users`.`weixin_number` AS `users.weixin_number`, `users`.`phone_number` AS `users.phone_number`, `users`.`name` AS `users.name`, `users`.`lawyer_number` AS `users.lawyer_number`, `users`.`avatar` AS `users.avatar`, `users`.`driver_scan_image` AS `users.driver_scan_image`, `users`.`lawyer_scan_image` AS `users.lawyer_scan_image`, `users`.`lawyer_office_id` AS `users.lawyer_office_id`, `users`.`update_time` AS `users.update_time`, `users`.`create_time` AS `users.create_time`, `users`.`identify_number` AS `users.identify_number`, `users`.`law_number` AS `users.law_number`, `users`.`start_time` AS `users.start_time`, `users->law_assistant`.`id` AS `users.law_assistant.id`, `users->law_assistant`.`law_id` AS `users.law_assistant.law_id`, `users->law_assistant`.`assist_id` AS `users.law_assistant.assist_id`, `users->law_assistant`.`scale` AS `users.law_assistant.scale` FROM `law` AS `law` LEFT OUTER JOIN ( `law_assistant` AS `users->law_assistant` INNER JOIN `user` AS `users` ON `users`.`id` = `users->law_assistant`.`assist_id`) ON `law`.`id` = `users->law_assistant`.`law_id` WHERE `law`.`id` = 1;
+2021-03-13 14:48:34,196 INFO 7028 [egg-sequelize](39ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 14:54:16,393 INFO 21700 [egg-sequelize](40ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 14:54:47,432 INFO 12028 [egg-sequelize](41ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 14:54:58,702 INFO 9620 [egg-sequelize](29ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 14:55:39,892 INFO 14972 [egg-sequelize](42ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 14:56:06,833 INFO 9556 [egg-sequelize](41ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 14:58:36,290 INFO 2688 [egg-sequelize](40ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 14:58:38,350 INFO 21528 [egg-sequelize](39ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 15:15:25,209 INFO 10888 [egg-sequelize](48ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 15:15:27,641 INFO 516 [egg-sequelize](41ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 15:22:08,358 INFO 18108 [egg-sequelize](40ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 15:22:10,398 INFO 23336 [egg-sequelize](40ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 15:22:23,158 INFO 5696 [egg-sequelize](32ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 15:23:11,860 INFO 14564 [egg-sequelize](41ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 15:23:13,698 INFO 20228 [egg-sequelize](31ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 15:24:41,756 INFO 3796 [egg-sequelize](39ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 15:39:05,032 INFO 19612 [egg-sequelize](41ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 15:39:19,368 INFO 4332 [egg-sequelize](39ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 15:39:41,038 INFO 9336 [egg-sequelize](48ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 15:39:50,547 INFO 22620 [egg-sequelize](41ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 15:40:04,890 INFO 20504 [egg-sequelize](41ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 15:40:29,742 INFO 516 [egg-sequelize](40ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 15:44:20,227 INFO 5336 [egg-sequelize](38ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 15:44:23,318 INFO 4408 [egg-sequelize](151ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 18:37:31,691 INFO 1400 [egg-sequelize](45ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 18:37:50,124 INFO 12312 [egg-sequelize](794ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 18:52:29,341 INFO 22772 [egg-sequelize](37ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 18:57:28,199 INFO 18872 [egg-sequelize](45ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 18:57:31,033 INFO 21228 [egg-sequelize](40ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 18:57:35,932 INFO 17772 [egg-sequelize](39ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 19:03:32,510 INFO 8692 [egg-sequelize](39ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 19:06:14,630 INFO 20860 [egg-sequelize](42ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 19:06:16,504 INFO 16120 [egg-sequelize](41ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 19:06:24,229 INFO 11680 [egg-sequelize](30ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 19:09:07,287 INFO 14992 [egg-sequelize](40ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 19:09:38,008 INFO 14156 [egg-sequelize](39ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 19:18:33,224 INFO 9096 [egg-sequelize](41ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 19:28:26,858 INFO 13584 [egg-sequelize](52ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 19:30:14,256 INFO 22824 [egg-sequelize](38ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 19:33:14,996 INFO 9004 [egg-sequelize](38ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 19:37:35,530 INFO 19728 [egg-sequelize](40ms) Executed (default): SELECT 1+1 AS result
+2021-03-13 19:42:12,072 INFO 6000 [egg-sequelize](41ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 09:49:31,307 INFO 18808 [egg-sequelize](12ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 10:05:39,935 INFO 1336 [egg-sequelize](12ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 10:18:38,780 INFO 2240 [egg-sequelize](16ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 10:19:09,814 INFO 14348 [egg-sequelize](15ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 10:19:25,809 INFO 4556 [egg-sequelize](12ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 10:20:20,879 INFO 13160 [egg-sequelize](12ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 10:20:24,333 INFO 12808 [egg-sequelize](13ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:11:16,748 INFO 16960 [egg-sequelize](20ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:11:52,452 INFO 2424 [egg-sequelize](38ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:12:00,042 INFO 10396 [egg-sequelize](17ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:12:05,839 INFO 14024 [egg-sequelize](12ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:13:15,878 INFO 11588 [egg-sequelize](14ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:16:36,188 INFO 2328 [egg-sequelize](13ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:17:28,876 INFO 13348 [egg-sequelize](11ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:18:08,261 INFO 13976 [egg-sequelize](11ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:23:18,820 INFO 17816 [egg-sequelize](13ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:23:40,057 INFO 23204 [egg-sequelize](13ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:24:23,914 INFO 12420 [egg-sequelize](14ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:24:57,420 INFO 22624 [egg-sequelize](13ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:29:56,040 INFO 18288 [egg-sequelize](11ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:31:44,611 INFO 11220 [egg-sequelize](11ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:31:46,313 INFO 20252 [egg-sequelize](13ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:31:54,396 INFO 2508 [egg-sequelize](13ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:33:50,262 INFO 15512 [egg-sequelize](12ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:34:15,172 INFO 2056 [egg-sequelize](15ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:34:17,188 INFO 15968 [egg-sequelize](14ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:34:55,567 INFO 22044 [egg-sequelize](13ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:35:55,318 INFO 14392 [egg-sequelize](13ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 15:36:12,446 ERROR 14392 [-/undefined/-/9118ms GET /api/ws] nodejs.TypeError: Cannot read property 'code' of undefined
+    at E:\project\lawyer_platform\app\middleware\httpLog.js:15:19
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async E:\plugin\egg-router-auth\app\middleware\verifyParams.js:11:7
+    at async E:\plugin\egg-router-auth\app\middleware\verifyAuth.js:38:7
+    at async E:\project\lawyer_platform\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (E:\project\lawyer_platform\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (E:\project\lawyer_platform\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (E:\project\lawyer_platform\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (E:\project\lawyer_platform\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (E:\project\lawyer_platform\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (E:\project\lawyer_platform\node_modules\koa-bodyparser\index.js:95:5)
+    at async E:\project\lawyer_platform\node_modules\koa-static-cache\index.js:41:56
+    at async notfound (E:\project\lawyer_platform\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (E:\project\lawyer_platform\node_modules\egg\app\middleware\meta.js:17:5)
+    at async cors (E:\project\lawyer_platform\node_modules\@koa\cors\index.js:98:16)
+headers: {"Access-Control-Allow-Origin":"*","vary":"Origin"}
+pid: 14392
+hostname: DESKTOP-89NQFV3
+
+2021-03-14 16:24:23,241 INFO 8472 [egg-sequelize](12ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 16:24:24,857 INFO 14772 [egg-sequelize](14ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 18:28:32,982 INFO 21548 [egg-sequelize](14ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 18:28:35,274 INFO 10204 [egg-sequelize](10ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 18:29:49,714 INFO 2112 [egg-sequelize](11ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 18:31:58,131 INFO 14508 [egg-sequelize](13ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 18:33:46,513 INFO 12328 [egg-sequelize](13ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 18:33:52,263 INFO 20136 [egg-sequelize](12ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 18:34:14,860 INFO 22240 [egg-sequelize](14ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 18:34:28,925 INFO 3856 [egg-sequelize](11ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 18:49:48,220 INFO 18876 [egg-sequelize](13ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 18:50:16,677 INFO 15492 [egg-sequelize](14ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 18:52:42,228 INFO 12080 [egg-sequelize](13ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 18:52:57,617 INFO 16728 [egg-sequelize](17ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 18:53:32,230 INFO 9780 [egg-sequelize](11ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 18:56:00,648 INFO 11296 [egg-sequelize](16ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 19:01:08,541 INFO 1488 [egg-sequelize](12ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 19:01:42,536 INFO 17548 [egg-sequelize](11ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 19:03:19,319 INFO 8580 [egg-sequelize](12ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:19:57,905 INFO 22984 [egg-sequelize](20ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:21:56,095 INFO 21560 [egg-sequelize](12ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:21:58,653 INFO 23960 [egg-sequelize](15ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:23:46,149 INFO 14396 [egg-sequelize](14ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:23:53,858 INFO 7816 [egg-sequelize](14ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:44:50,780 INFO 9652 [egg-sequelize](12ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:44:52,596 INFO 22676 [egg-sequelize](17ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:46:22,645 INFO 23772 [egg-sequelize](13ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:47:02,560 INFO 5780 [egg-sequelize](13ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:47:11,069 INFO 8488 [egg-sequelize](12ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:47:14,825 INFO 8488 [egg-sequelize](18ms) Executed (default): SELECT `message`.`id`, `message`.`form_user_id`, `message`.`to_user_id`, `message`.`law_id`, `message`.`remark`, `message`.`is_watched`, `message`.`is_agree`, `law`.`id` AS `law.id`, `law`.`number` AS `law.number`, `law`.`name` AS `law.name`, `law`.`status_id` AS `law.status_id`, `law`.`base_info` AS `law.base_info`, `law`.`detail_info` AS `law.detail_info`, `law`.`type_id` AS `law.type_id`, `law`.`agency_word_id` AS `law.agency_word_id`, `law`.`final_report_id` AS `law.final_report_id`, `law`.`result_request_id` AS `law.result_request_id`, `law`.`audit_user_id` AS `law.audit_user_id`, `law`.`create_time` AS `law.create_time`, `law`.`end_time` AS `law.end_time`, `law`.`accuser` AS `law.accuser`, `law`.`defendant` AS `law.defendant`, `law`.`trial_level_id` AS `law.trial_level_id`, `law`.`host_user_id` AS `law.host_user_id`, `law`.`host_assist_scale` AS `law.host_assist_scale`, `law`.`money` AS `law.money`, `law`.`remove_time` AS `law.remove_time` FROM `message` AS `message` LEFT OUTER JOIN `law` AS `law` ON `message`.`law_id` = `law`.`id` WHERE `message`.`to_user_id` = 1;
+2021-03-14 21:47:51,600 INFO 24276 [egg-sequelize](229ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:48:22,492 INFO 23728 [egg-sequelize](13ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:48:27,541 INFO 21060 [egg-sequelize](12ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:48:38,445 INFO 2868 [egg-sequelize](12ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:49:27,401 INFO 1756 [egg-sequelize](12ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:49:37,510 INFO 13444 [egg-sequelize](14ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:49:39,556 INFO 13444 [egg-sequelize](18ms) Executed (default): SELECT `message`.`id`, `message`.`form_user_id`, `message`.`to_user_id`, `message`.`law_id`, `message`.`remark`, `message`.`is_watched`, `message`.`is_agree`, `law`.`id` AS `law.id`, `law`.`number` AS `law.number`, `law`.`name` AS `law.name`, `law`.`status_id` AS `law.status_id`, `law`.`base_info` AS `law.base_info`, `law`.`detail_info` AS `law.detail_info`, `law`.`type_id` AS `law.type_id`, `law`.`agency_word_id` AS `law.agency_word_id`, `law`.`final_report_id` AS `law.final_report_id`, `law`.`result_request_id` AS `law.result_request_id`, `law`.`audit_user_id` AS `law.audit_user_id`, `law`.`create_time` AS `law.create_time`, `law`.`end_time` AS `law.end_time`, `law`.`accuser` AS `law.accuser`, `law`.`defendant` AS `law.defendant`, `law`.`trial_level_id` AS `law.trial_level_id`, `law`.`host_user_id` AS `law.host_user_id`, `law`.`host_assist_scale` AS `law.host_assist_scale`, `law`.`money` AS `law.money`, `law`.`remove_time` AS `law.remove_time` FROM `message` AS `message` LEFT OUTER JOIN `law` AS `law` ON `message`.`law_id` = `law`.`id` WHERE `message`.`to_user_id` = 1;
+2021-03-14 21:49:53,178 ERROR 13444 [egg-websocket-plugin] error:  [egg-websocket-plugin] redis pub/sub adapter configure not found
+2021-03-14 21:49:55,484 ERROR 13444 [-/undefined/-/2305ms GET /api/case/WSconnect] nodejs.TypeError: Cannot read property 'code' of undefined
+    at E:\project\lawyer_platform\app\middleware\httpLog.js:15:19
+    at async E:\plugin\egg-router-auth\app\middleware\verifyParams.js:11:7
+    at async E:\plugin\egg-router-auth\app\middleware\verifyAuth.js:17:7
+    at async E:\project\lawyer_platform\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (E:\project\lawyer_platform\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (E:\project\lawyer_platform\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (E:\project\lawyer_platform\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (E:\project\lawyer_platform\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (E:\project\lawyer_platform\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (E:\project\lawyer_platform\node_modules\koa-bodyparser\index.js:95:5)
+    at async E:\project\lawyer_platform\node_modules\koa-static-cache\index.js:41:56
+    at async notfound (E:\project\lawyer_platform\node_modules\egg\app\middleware\notfound.js:5:5)
+    at async meta (E:\project\lawyer_platform\node_modules\egg\app\middleware\meta.js:17:5)
+    at async cors (E:\project\lawyer_platform\node_modules\@koa\cors\index.js:98:16)
+headers: {"Access-Control-Allow-Origin":"*","vary":"Origin"}
+pid: 13444
+hostname: DESKTOP-89NQFV3
+
+2021-03-14 21:50:40,096 INFO 24224 [egg-sequelize](11ms) Executed (default): SELECT 1+1 AS result
+2021-03-14 21:50:42,632 ERROR 24224 [egg-websocket-plugin] error:  [egg-websocket-plugin] redis pub/sub adapter configure not found
+2021-03-14 21:50:57,177 ERROR 24224 [egg-websocket-plugin] error:  [egg-websocket-plugin] redis pub/sub adapter configure not found
