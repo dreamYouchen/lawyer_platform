@@ -72,6 +72,7 @@ class ScheduleService extends Service {
         warnDate === date) {
         const temp = {
           schedule_id: schedule.id,
+          title: schedule.title,
           content: schedule.content,
           create_time: schedule.create_time,
           warn_time: schedule.warn_time,

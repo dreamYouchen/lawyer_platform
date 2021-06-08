@@ -294,3 +294,5 @@ hostname: DESKTOP-89NQFV3
 2021-06-08 08:42:58,024 INFO 15192 [egg-sequelize](164ms) Executed (default): SELECT `id`, `user_id`, `title`, `content`, `warn_time`, `ring_spaceing`, `ring_number`, `create_time`, `update_time` FROM `schedule` AS `schedule`;
 2021-06-08 08:43:30,486 INFO 1272 [egg-sequelize](30ms) Executed (default): SELECT 1+1 AS result
 2021-06-08 08:43:40,901 INFO 13364 [egg-sequelize](30ms) Executed (default): SELECT 1+1 AS result
+2021-06-08 09:10:34,012 INFO 8800 [egg-sequelize](31ms) Executed (default): SELECT 1+1 AS result
+2021-06-08 09:10:36,891 INFO 11248 [egg-sequelize](36ms) Executed (default): SELECT 1+1 AS result
