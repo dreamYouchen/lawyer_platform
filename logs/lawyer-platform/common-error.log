@@ -40,3 +40,11 @@ hostname: DESKTOP-89NQFV3
 
 2021-03-14 21:50:42,631 ERROR 24224 [egg-websocket-plugin] error:  [egg-websocket-plugin] redis pub/sub adapter configure not found
 2021-03-14 21:50:57,176 ERROR 24224 [egg-websocket-plugin] error:  [egg-websocket-plugin] redis pub/sub adapter configure not found
+2021-06-08 08:29:52,539 ERROR 5264 nodejs.ClusterClientNoResponseError: client no response in 200830ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (E:\project\lawyer_platform\node_modules\cluster-client\lib\leader.js:77:23)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+name: "ClusterClientNoResponseError"
+pid: 5264
+hostname: DESKTOP-7D5NGTR
+

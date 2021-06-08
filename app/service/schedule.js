@@ -11,7 +11,7 @@ class ScheduleService extends Service {
   async create() {
     const { ctx, service } = this;
     const query = ctx.request.body;
-    const { title, content, warn_time } = query;
+    const { title, content, warn_time, ringSpaceing, ringNumber } = query;
     const jwtData = await service.jwt.getJWtData();
     const userID = jwtData.userID;
     await ctx.model.Schedule.Schedule.create({
@@ -19,8 +19,11 @@ class ScheduleService extends Service {
       title,
       content,
       warn_time,
+      ringSpaceing,
+      ringNumber,
       create_time: new Date().getTime(),
     });
+    await service.redis.updateSchedulesInRedis();
     return ctx.retrunInfo(0, '', '新建日程成功');
   }
 
@@ -57,18 +60,23 @@ class ScheduleService extends Service {
     const date = await service.util.transfromStringToNumber(query.day);
 
     schedulesInRedis.forEach(schedule => {
-      const createTime = new Date(parseInt(schedule.create_time));
-      const createYear = createTime.getFullYear();
-      const createMonth = createTime.getMonth() + 1;
-      const createDate = createTime.getDate();
-      if (createYear === year &&
-        createMonth === month &&
-        createDate === date) {
+      if (!schedule.warn_time) {
+        return;
+      }
+      const warnTime = new Date(parseInt(schedule.warn_time));
+      const warnYear = warnTime.getFullYear();
+      const warnMonth = warnTime.getMonth() + 1;
+      const warnDate = warnTime.getDate();
+      if (warnYear === year &&
+        warnMonth === month &&
+        warnDate === date) {
         const temp = {
           schedule_id: schedule.id,
           content: schedule.content,
           create_time: schedule.create_time,
           warn_time: schedule.warn_time,
+          ringSpaceing: schedule.ring_spaceing,
+          ringNumber: schedule.ring_number
         };
         res.push(temp);
       }
@@ -83,9 +91,9 @@ class ScheduleService extends Service {
    * @memberof ScheduleService
    */
   async modify() {
-    const { ctx } = this;
+    const { ctx, service } = this;
     const query = ctx.request.body;
-    const { schedule_id, warn_time, content, title } = query;
+    const { schedule_id, warn_time, content, title, modify_ringSpaceing, modify_ringNumber } = query;
     let transaction;
 
     try {
@@ -95,10 +103,13 @@ class ScheduleService extends Service {
         warn_time,
         content,
         title,
+        ringSpaceing: modify_ringSpaceing,
+        ringNumber: modify_ringNumber,
       }, {
         transaction,
       });
       await transaction.commit();
+      await service.redis.updateSchedulesInRedis();
       return ctx.retrunInfo(0, '', '修改成功');
     } catch (error) {
       await transaction.rollback();

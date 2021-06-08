@@ -176,6 +176,64 @@
     "name": "GetApiUserSalarylist"
   },
   {
+    "type": "POST",
+    "url": "/api/schedule/modify",
+    "title": "修改日程",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "schedule_id",
+            "description": "<p>日程ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "warn_time",
+            "description": "<p>提醒时间</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "content",
+            "description": "<p>提醒内容</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "title",
+            "description": "<p>标题</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "modify_ringSpaceing",
+            "description": "<p>响铃间隔</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "modify_ringNumber",
+            "description": "<p>响铃次数</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/schedule.js",
+    "group": "E:\\project\\lawyer_platform\\app\\controller\\schedule.js",
+    "groupTitle": "E:\\project\\lawyer_platform\\app\\controller\\schedule.js",
+    "name": "PostApiScheduleModify"
+  },
+  {
     "type": "GET",
     "url": "/api/user/getCardInfo",
     "title": "获取用户电子名片信息",

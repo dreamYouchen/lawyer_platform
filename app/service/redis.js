@@ -109,8 +109,8 @@ class RedisService extends Service {
   }
 
   /**
-   * @description 从缓存中获取用户数据
-   * @return {Array} 缓存中的用户数据
+   * @description 从缓存中获取日程数据
+   * @return {Array} 缓存中的日程数据
    * @memberof RedisService
    */
   async getSchedulesInRedis() {
@@ -125,7 +125,7 @@ class RedisService extends Service {
   }
 
   /**
-   * @description 进行与修改用户相关操作的话，需要更新缓存
+   * @description 进行与修改日程相关操作的话，需要更新缓存
    * @memberof RedisService
    */
   async updateSchedulesInRedis() {

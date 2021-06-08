@@ -24,6 +24,16 @@ module.exports = app => {
       type: STRING(32),
       allowNull: true,
     },
+    // 响铃时间间隔
+    ring_spaceing: {
+      type: STRING(32),
+      allowNull: true,
+    },
+    // 响铃次数
+    ring_number: {
+      type: STRING(32),
+      allowNull: true,
+    },
     create_time: {
       type: STRING(32),
       allowNull: false,

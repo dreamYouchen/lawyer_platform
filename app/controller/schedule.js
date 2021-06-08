@@ -17,7 +17,15 @@ class ScheduleController extends Controller {
     ctx.body = res;
   }
 
-  // 修改日程
+  /**
+   * @api {POST} /api/schedule/modify 修改日程
+   * @apiParam {number} schedule_id 日程ID
+   * @apiParam {string} warn_time 提醒时间
+   * @apiParam {string} content 提醒内容
+   * @apiParam {string} title 标题
+   * @apiParam {string} modify_ringSpaceing 响铃间隔
+   * @apiParam {string} modify_ringNumber 响铃次数
+   */
   async modify() {
     const { ctx, service } = this;
     const res = await service.schedule.modify();
