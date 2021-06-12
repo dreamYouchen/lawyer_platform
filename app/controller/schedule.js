@@ -18,6 +18,16 @@ class ScheduleController extends Controller {
   }
 
   /**
+   * @api {POST} /api/schedule/info 获取日程具体信息
+   * @apiParam {number} schedule_ID 日程ID
+   */
+  async getScheduleInfo() {
+    const { ctx, service } = this;
+    const res = await service.schedule.getScheduleInfo();
+    ctx.body = res;
+  }
+
+  /**
    * @api {POST} /api/schedule/modify 修改日程
    * @apiParam {number} schedule_id 日程ID
    * @apiParam {string} warn_time 提醒时间

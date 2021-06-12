@@ -76,12 +76,14 @@ module.exports = app => {
   router.post('/api/user/log/modify', logIdVerify, controller.log.modify);
   router.post('/api/log/delete', logIdVerify, controller.log.delete);
   router.get('/api/log/caselog', controller.log.getLogsByLawID);
+  router.get('/api/log/info', controller.log.getLogInfo);
 
   // 日程相关
   router.post('/api/schedule/new', controller.schedule.create);
   router.get('/api/schedule/getList', controller.schedule.getScheduleList);
   router.post('/api/schedule/modify', scheduleIdVerify, controller.schedule.modify);
   router.post('/api/schedule/delete', scheduleIdVerify, controller.schedule.delete);
+  router.get('/api/schedule/info', controller.schedule.getScheduleInfo);
 
   // 管理员相关
   // 用户相关

@@ -147,6 +147,29 @@
   },
   {
     "type": "GET",
+    "url": "/api/log/info",
+    "title": "获取日志具体信息",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "log_ID",
+            "description": "<p>日志ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/log.js",
+    "group": "E:\\project\\lawyer_platform\\app\\controller\\log.js",
+    "groupTitle": "E:\\project\\lawyer_platform\\app\\controller\\log.js",
+    "name": "GetApiLogInfo"
+  },
+  {
+    "type": "GET",
     "url": "/api/user/salaryList",
     "title": "获取收入列表",
     "parameter": {
@@ -174,6 +197,29 @@
     "group": "E:\\project\\lawyer_platform\\app\\controller\\salary.js",
     "groupTitle": "E:\\project\\lawyer_platform\\app\\controller\\salary.js",
     "name": "GetApiUserSalarylist"
+  },
+  {
+    "type": "POST",
+    "url": "/api/schedule/info",
+    "title": "获取日程具体信息",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "schedule_ID",
+            "description": "<p>日程ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "app/controller/schedule.js",
+    "group": "E:\\project\\lawyer_platform\\app\\controller\\schedule.js",
+    "groupTitle": "E:\\project\\lawyer_platform\\app\\controller\\schedule.js",
+    "name": "PostApiScheduleInfo"
   },
   {
     "type": "POST",

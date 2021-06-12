@@ -212,6 +212,30 @@ class LogService extends Service {
   }
 
   /**
+   * @description 获取日志具体信息
+   * @return {object} 返回信息
+   * @memberof LogService
+   */
+  async getLogInfo() {
+    const { ctx, service } = this;
+    const logID = parseInt(ctx.query.log_ID);
+    const logListInRedis = await service.redis.getLogsInRedis();
+    for (let i = 0; i < logListInRedis.length; i++) {
+      const logItem = logListInRedis[i];
+      if (logItem.id === logID) {
+        const temp = {
+          case_ID:logItem.lawyer_id,
+          content: logItem.content,
+          select_time: logItem.select_time
+        };
+        return ctx.retrunInfo(0, temp, '');
+      }
+    }
+
+    return ctx.retrunInfo(-1, '', '暂无数据');
+  }
+
+  /**
    * @description 管理员获取日志列表
    * @param {number} userID
    * @param {number} year

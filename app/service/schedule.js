@@ -85,6 +85,31 @@ class ScheduleService extends Service {
     return ctx.retrunInfo(0, res, '');
   }
 
+  /**
+   * @description 获取日程具体内容
+   * @return {object} 返回信息
+   * @memberof ScheduleService
+   */
+  async getScheduleInfo() {
+    const { ctx, service } = this;
+    const query = ctx.query;
+    const schedulesInRedis = await service.redis.getSchedulesInRedis();
+    const schedule_ID = Number(query.schedule_ID);
+
+    for (let i = 0; i < schedulesInRedis.length; i++) {
+      const schedulesItem= schedulesInRedis[i];
+      if (schedule_ID === schedulesItem.id) {
+        return ctx.retrunInfo(0, {
+          title: schedulesItem.title, //日程标题
+          content: schedulesItem.content, // 日程内容
+          warn_time: schedulesItem.warn_time, //提醒时间
+          ringSpacing: schedulesItem.ring_spaceing, //响铃间隔
+          ringNumber: schedulesItem.ring_number, //响铃次数
+        }, '');
+      }
+    }
+    return ctx.retrunInfo(-1, '', '暂无数据');
+  }
 
   /**
    * @description 修改日程信息

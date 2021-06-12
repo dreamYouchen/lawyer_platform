@@ -17,6 +17,16 @@ class LogController extends Controller {
     ctx.body = res;
   }
 
+  /**
+   * @api {GET} /api/log/info 获取日志具体信息
+   * @apiParam {number} log_ID 日志ID
+   */
+  async getLogInfo() {
+    const { ctx, service } = this;
+    const res = await service.log.getLogInfo();
+    ctx.body = res;
+  }
+
   // 修改日志信息
   async modify() {
     const { ctx, service } = this;
